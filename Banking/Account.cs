@@ -5,11 +5,11 @@ using System.Text;
 namespace Banking {
 
     class Account {
-        public string AccountNumber { get; set; }
-        public string RoutingNumber { get; set; }
+        public string AccountNumber { get; private set; }
+        //public string RoutingNumber { get; set; }
         public string Description { get; set; }
-        public string AccountType { get; set; }
-        public decimal Balance { get; set; } = 0;
+        //public string AccountType { get; set; }
+        public decimal Balance { get; private set; } = 0;
 
         public void Deposit(decimal amount) {
             if(amount > 0) {
@@ -29,6 +29,14 @@ namespace Banking {
                 Console.WriteLine($"inufficient funds!");
             }
         }
+        //new changes added here that helps improve the program class
+        public Account() : this("DefActt0", "Default Account Description") { } // this will call a different contructors within the class
+       
+        public Account(string acctNbr, string desc = "New Account") {
+            AccountNumber = acctNbr;
+            Description = desc;
+        }
 
     }
+    
 }
