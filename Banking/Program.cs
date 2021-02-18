@@ -4,8 +4,8 @@ namespace Banking {
     class Program {
         static void Main(string[] args) {
 
-
-            var sav1 = new Savings();
+            var sav1 = new SavingsI();
+            //var sav1 = new Savings();
             sav1.Deposit(50);
             sav1.Withdraw(20);
             sav1.Withdraw(50);
