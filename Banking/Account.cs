@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using Banking.Exceptions;
 namespace Banking {
 
     class Account {
@@ -12,10 +12,11 @@ namespace Banking {
         public decimal Balance { get; private set; } = 0;
 
         public void Deposit(decimal amount) {
-            if(amount > 0) {
-            Balance += amount;
+            if (amount <= 0) {
+                throw new AmountMustBePositiveException();
             }
 
+                Balance += amount;
             }
         public void Withdraw(decimal amount) {
             if(amount < 0) {
@@ -26,7 +27,7 @@ namespace Banking {
 
 
             } else {
-                Console.WriteLine($"inufficient funds!");
+                throw new InsufficientFundsException(Balance, amount);
             }
         }
         //new changes added here that helps improve the program class
