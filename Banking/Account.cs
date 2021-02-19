@@ -13,7 +13,7 @@ namespace Banking {
 
         public void Deposit(decimal amount) {
             if (amount <= 0) {
-                throw new AmountMustBePositiveException();
+                throw new AmountMustBePositiveException("Amount less then zero");
             }
 
                 Balance += amount;
